@@ -37,9 +37,6 @@ public class Main {
         if (deliveryDistance >60) {
             deliveryTerm++;
             return deliveryTerm;
-        }if (deliveryDistance >100) {
-            deliveryTerm++;
-            return deliveryTerm;
         }
         return deliveryTerm;
     }
