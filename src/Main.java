@@ -20,13 +20,18 @@ public class Main {
         }
     }
     public static void checkOS(int clientOS, int currentYear){
-        boolean versionYear = currentYear < 2023;
+        boolean lightVersionYear = currentYear < 2015;
+        boolean normalVersionYear = currentYear > 2015;
         boolean iOS = clientOS == 0;
         boolean android = clientOS == 1;
-        if (versionYear && iOS){
+        if (lightVersionYear && iOS){
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (versionYear && android) {
+        } else if (lightVersionYear && android) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (normalVersionYear && android) {
+            System.out.println("Установите обычную версию приложения для Android по ссылке");
+        } else if (normalVersionYear & iOS) {
+            System.out.println("Установите обычную версию приложения для iOS по ссылке");
         }
     }
     public static int calculateDelivery(int deliveryDistance){
@@ -35,9 +40,6 @@ public class Main {
             deliveryTerm++;
         }
         if (deliveryDistance >60) {
-            deliveryTerm++;
-            return deliveryTerm;
-        }if (deliveryDistance >100) {
             deliveryTerm++;
             return deliveryTerm;
         }
